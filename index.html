@@ -3,49 +3,56 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ABC & Associates | CA Firm</title>
+  <title>FilingReturn.in | Tax & Compliance Services</title>
   <style>
     body { font-family: Arial, sans-serif; margin: 40px; max-width: 800px; margin: auto; }
     header, section, footer { margin-bottom: 40px; }
+    .services ul { list-style-type: disc; padding-left: 20px; }
     form input, form textarea { width: 100%; padding: 10px; margin-top: 10px; }
-    form button { padding: 10px 20px; margin-top: 20px; background: #4CAF50; color: white; border: none; }
+    form button { padding: 10px 20px; margin-top: 20px; background: #004aad; color: white; border: none; }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>ABC & Associates</h1>
-  <p>Your trusted Chartered Accountant firm for Taxation, Audits, and Compliance.</p>
+  <h1>FilingReturn.in</h1>
+  <p>By Prakhar Agarwal | 📞 6394490249 | ✉ filingreturn.tax@gmail.com</p>
 </header>
 
 <section>
   <h2>About Us</h2>
-  <p>ABC & Associates is a CA firm offering professional accounting, auditing, and tax consultancy services to individuals and businesses.</p>
+  <p>FilingReturn.in offers comprehensive financial and compliance services, including accounting, taxation, company registration, GST, and more for businesses and individuals.</p>
 </section>
 
-<section>
+<section class="services">
   <h2>Our Services</h2>
   <ul>
+    <li>Accounting</li>
+    <li>GST Registration & Filing</li>
     <li>Income Tax Filing</li>
-    <li>GST Registration and Return Filing</li>
-    <li>Company Audit</li>
-    <li>Startup Compliance</li>
+    <li>TDS Returns</li>
+    <li>ROC Compliances</li>
+    <li>Tax Litigation Support</li>
+    <li>PAN/TAN Registration</li>
+    <li>Trade License, FSSAI, MSME, and more</li>
+    <li>Firm/LLP/Company Incorporation</li>
   </ul>
 </section>
 
 <section>
-  <h2>Contact Us</h2>
+  <h2>Quick Inquiry</h2>
   <form name="submit-to-google-sheet">
     <input name="Name" type="text" placeholder="Your Name" required />
     <input name="Email" type="email" placeholder="Your Email" required />
-    <textarea name="Message" placeholder="Your Query" required></textarea>
-    <button type="submit">Submit</button>
+    <input name="Mobile" type="text" placeholder="Your Mobile Number" required />
+    <textarea name="Message" placeholder="Your Query or Required Service" required></textarea>
+    <button type="submit">Submit Inquiry</button>
   </form>
   <p id="msg"></p>
 </section>
 
 <footer>
-  <p>© 2025 ABC & Associates. All rights reserved.</p>
+  <p>© 2025 FilingReturn.in. All rights reserved.</p>
 </footer>
 
 <script>
@@ -54,7 +61,7 @@
 
   form.addEventListener('submit', e => {
     e.preventDefault();
-    fetch('https://script.google.com/macros/s/AKfycbxUWFuZ95rF4r1wVllLr_QQClCABio8z2NQ4aybOKzwhrs2tUL2KJb-5DdjjHCoZ9Y87g/exec', {
+    fetch('https://script.google.com/macros/s/YOUR_GOOGLE_SCRIPT_URL_HERE/exec', {
       method: 'POST',
       body: new FormData(form)
     })
@@ -62,7 +69,7 @@
       msg.innerHTML = "Message sent successfully!";
       form.reset();
     })
-    .catch(error => {
+    .catch(() => {
       msg.innerHTML = "Something went wrong!";
     });
   });
