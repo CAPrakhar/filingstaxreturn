@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ABC & Associates | CA Firm</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; max-width: 800px; margin: auto; }
+    header, section, footer { margin-bottom: 40px; }
+    form input, form textarea { width: 100%; padding: 10px; margin-top: 10px; }
+    form button { padding: 10px 20px; margin-top: 20px; background: #4CAF50; color: white; border: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>ABC & Associates</h1>
+  <p>Your trusted Chartered Accountant firm for Taxation, Audits, and Compliance.</p>
+</header>
+
+<section>
+  <h2>About Us</h2>
+  <p>ABC & Associates is a CA firm offering professional accounting, auditing, and tax consultancy services to individuals and businesses.</p>
+</section>
+
+<section>
+  <h2>Our Services</h2>
+  <ul>
+    <li>Income Tax Filing</li>
+    <li>GST Registration and Return Filing</li>
+    <li>Company Audit</li>
+    <li>Startup Compliance</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Contact Us</h2>
+  <form name="submit-to-google-sheet">
+    <input name="Name" type="text" placeholder="Your Name" required />
+    <input name="Email" type="email" placeholder="Your Email" required />
+    <textarea name="Message" placeholder="Your Query" required></textarea>
+    <button type="submit">Submit</button>
+  </form>
+  <p id="msg"></p>
+</section>
+
+<footer>
+  <p>© 2025 ABC & Associates. All rights reserved.</p>
+</footer>
+
+<script>
+  const form = document.forms['submit-to-google-sheet'];
+  const msg = document.getElementById('msg');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    fetch('https://script.google.com/macros/s/AKfycbxUWFuZ95rF4r1wVllLr_QQClCABio8z2NQ4aybOKzwhrs2tUL2KJb-5DdjjHCoZ', {
+      method: 'POST',
+      body: new FormData(form)
+    })
+    .then(() => {
+      msg.innerHTML = "Message sent successfully!";
+      form.reset();
+    })
+    .catch(error => {
+      msg.innerHTML = "Something went wrong!";
+    });
+  });
+</script>
+
+</body>
+</html>
